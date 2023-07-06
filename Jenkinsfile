@@ -4,9 +4,9 @@ pipeline {
     environment {
         AWS_ACCOUNT_ID="947502358539"
         AWS_DEFAULT_REGION="ap-south-1" 
-	CLUSTER_NAME="TKS"
-	SERVICE_NAME="tks_erp_docker_container-service"
-	TASK_DEFINITION_NAME="tks_erp-container"
+	CLUSTER_NAME="tksdevopserp"
+	SERVICE_NAME="tkserpcluster-service"
+	TASK_DEFINITION_NAME="tks_erp_build_task"
 	DESIRED_COUNT="1"
         IMAGE_REPO_NAME="tks_erp"
         IMAGE_TAG="${env.BUILD_ID}"
