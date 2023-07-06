@@ -14,7 +14,7 @@ pipeline {
 	registryCredential = "947502358539"
     }
    
-/*    stages {
+    stages {
 
     // Tests
     stage('ERP Sonar Tests') {
@@ -25,9 +25,8 @@ pipeline {
         }
       }
     }
-*/
 
-stages {
+/* stages {
         stage('build && SonarQube analysis') {
             steps {
                 withSonarQubeEnv('sonar.tools.devops.****') {
@@ -42,6 +41,9 @@ stages {
                 }
             }
 		}
+
+*/
+
     // Building Docker images
     stage('Building image') {
       steps{
