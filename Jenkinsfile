@@ -14,7 +14,7 @@ pipeline {
 	registryCredential = "947502358539"
     }
    
-    stages {
+/*    stages {
 
     // Tests
     stage('ERP Sonar Tests') {
@@ -25,7 +25,23 @@ pipeline {
         }
       }
     }
-        
+*/
+
+stages {
+        stage('build && SonarQube analysis') {
+            steps {
+                withSonarQubeEnv('sonar.tools.devops.****') {
+                    sh 'sonar-scanner -Dsonar.projectKey=myProject -Dsonar.sources=./src'
+                }
+            }
+        }
+        stage("Quality Gate") {
+            steps {
+                timeout(time: 1, unit: 'HOURS') {
+                    waitForQualityGate abortPipeline: true
+                }
+            }
+		}
     // Building Docker images
     stage('Building image') {
       steps{
