@@ -17,7 +17,7 @@ pipeline {
     stages {
 
     // Tests
-    stage('ERP Sonar Tests') {
+    stage('ERP-SonarQube-Scanning') {
       steps{
         script {
           sh 'npm install'
