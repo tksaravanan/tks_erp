@@ -4,9 +4,9 @@ pipeline {
     environment {
         AWS_ACCOUNT_ID="947502358539"
         AWS_DEFAULT_REGION="ap-south-1" 
-	CLUSTER_NAME="tksdevopserp"
-	SERVICE_NAME="tkserpcluster-service"
-	TASK_DEFINITION_NAME="tks_erp_build_task"
+	CLUSTER_NAME="erp-cluster"
+	SERVICE_NAME="erp_container-service"
+	TASK_DEFINITION_NAME="first-run-erp-docker"
 	DESIRED_COUNT="1"
         IMAGE_REPO_NAME="tks_erp"
         IMAGE_TAG="${env.BUILD_ID}"
@@ -45,7 +45,7 @@ pipeline {
 */
 
     // Building Docker images
-    stage('Building image') {
+    stage('Building Docker image') {
       steps{
         script {
           dockerImage = docker.build "${IMAGE_REPO_NAME}:${IMAGE_TAG}"
